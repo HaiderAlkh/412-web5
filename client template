@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Template</title>
+</head>
+<style>header{
+    text-align: center};
+    #about{
+        align-content: center;}
+        img {
+  width:100px;
+  height:100px;
+  background: url(https://placehold.jp/150x150.png);
+  align-content: center;
+}
+footer{
+    text-align: center;}</style>
+<body>
+   
+    <header>
+        <h1>FCKLEXX</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#booking">Booking</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+
+            </ul>
+        </nav>
+    </header>
+<img src="" /><img src="https://placehold.jp/150x150.png" />
+    <BR>
+    <section id="about">
+        <h2>About FCKLEXX</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum tempore fuga natus, ad voluptatibus sunt eveniet unde!
+             Nostrum aliquid ipsa repellat dignissimos eos. Dolores debitis cupiditate repellat facilis sint numquam!
+        </p>
+    </section>
+
+    <BR>
+        <img src="" /><img src="https://placehold.jp/150x150.png" />
+        <br>
+    <section id="booking">
+        <h2>Booking</h2>
+        <p>Lorem ipsum dol</p>
+    </section>
+    <br>
+    <img src="" /><img src="https://placehold.jp/150x150.png" />
+    <br>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+        <footer>Copyright</footer>
+</body>
+</html>
