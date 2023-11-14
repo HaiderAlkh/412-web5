@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEXX</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Prototype', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .parallax-header {
+            background-image: url('/web5/images/marcela-laskoski-YrtFlrLo2DQ-unsplash.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header {
+            background-color: black;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+            margin-right: 0px;
+            animation: fadeIn 2s ease;
+        }
+
+        h1 {
+            margin: 0;
+            margin-right: 400px;
+            font-family: MyFirstFont, sans-serif;
+            animation: fadeIn 2s ease;
+            font-size: 35px;
+        }
+
+        .navbar {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            font-family: myFirsFont;
+            animation: fadeIn 2s ease;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            transition: color 0.3s ease, transform 0.5s ease;
+
+        }
+
+        .navbar a:hover {
+            color: #FF4500;
+            transform: scale(1.2);
+
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            font-family: myFirsFont;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background-color: black;
+            width: 100%;
+            z-index: 999;
+            display: none;
+        }
+
+        .nav-links a {
+            padding: 10px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            background-color: #333;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+            opacity: 0;
+            animation: fadeIn 2s ease;
+            animation-fill-mode: forwards;
+            height: 80vh;
+        }
+
+        .section-content {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            animation: slideInLeft 1.5s ease;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .section-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .section-text {
+            width: 50%;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: left;
+        }
+
+        .section-text h2 {
+            margin-top: 0;
+        }
+
+        .section-image {
+            width: 50%;
+        }
+
+        @font-face {
+            font-family: myFirstFont;
+            src: url('../images/Metropolitan.ttf');
+        }
+
+        @font-face {
+            font-family: myFirsFont;
+            src: url('../images/LEDLIGHT.otf');
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slideshow-container {
+            max-width: 100%;
+            height: 400px;
+            position: relative;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fade {
+            animation: fade 1.5s ease infinite;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+           
+            .navbar {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: black;
+                width: 100%;
+                z-index: 999;
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="parallax-header">
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <img src="../images/logo.JPG" alt="Logo">
+                </div>
+                <h1>LEXX</h1>
+                <div class="menu-icon" onclick="toggleMenu()">☰</div>
+                <nav class="navbar">
+                    <a href="#about-me">About Me</a>
+                    <a href="#bookings">Bookings</a>
+                    <a href="#contact-me">Contact Me</a>
+                </nav>
+                <div class="nav-links">
+                    <a href="#about-me">About Me</a>
+                    <a href="#bookings">Bookings</a>
+                    <a href="#contact-me">Contact Me</a>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <section id="about-me" class="section">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>About Me</h2>
+                    <p>Hey there! I'm DJ Lexx, a dedicated music curator and event enthusiast with over 5 years of
+                        experience in the art of DJing. Music isn't just my career; it's my way of life.</p>
+                    <p>My journey into the world of beats and melodies began in underground small parties with friends.
+                        Each beat I drop tells a story, and each mix I create is a unique experience, carefully tailored
+                        for the crowd before me.</p>
+                    <p>My musical journey knows no limits. I blend genres seamlessly, ensuring every listener finds
+                        their
+                        rhythm on the dance floor.</p>
+                    <p>Join me on this sonic journey, and let's create an unforgettable musical experience together!</p>
+                </div>
+                <div class="section-image">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img src="../images/IMAGE1.JPG" alt="DJ Lexx" />
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="../images/aleksandr-popov-k6MxhKAC6gk-unsplash.jpeg" alt="DJ Lexx" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="bookings" class="section">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-image">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img src="../images/IMAG2.JPG" alt="DJ Lexx" />
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="../images/flavio-anibal-m6nTS8pgHbw-unsplash.jpeg" alt="DJ Lexx" />
+                        </div>
+                    </div>
+                </div>
+                <div class="section-text">
+                    <h2>Bookings</h2>
+                    <p>Book DJ Lexx for your next event! Whether it's a private party, club night, or corporate
+                        function, I'll bring the perfect beats to make your event unforgettable.</p>
+                    <p>Choose from a variety of booking options:</p>
+                    <ul>
+                        <li>One Session (60min) - $450</li>
+                        <li>Extended Set (up to 3 hours) - $1200</li>
+                        <li>All-Night Party (4+ hours) - $2500</li>
+                    </ul>
+                    <p>Contact me to discuss your event details and customize a package that suits your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-me" class="section">
+        <div class="container">
+            <div class="section-content">
+                <div class="section-text">
+                    <h2>Contact Me</h2>
+                    <p>Let's connect and make your event unforgettable! Feel free to reach out through the following
+                        channels:</p>
+                    <ul>
+                        <li>Snapchat - @***.lex</li>
+                        <li>Email - djlexx@gmail.com</li>
+                        <li>Phone - +1 (555) 123-4567</li>
+                    </ul>
+                    <p>Looking forward to hearing from you!</p>
+                </div>
+                <div class="section-image">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img src="../images/image3.JPG" alt="DJ Lexx" />
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="../images/maximalfocus-bAh-EUSSlyo-unsplash.jpeg" alt="DJ Lexx" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const sections = document.querySelectorAll(".section");
+
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            const threshold = 0.9;
+            return (
+                rect.top <= window.innerHeight * (1 - threshold) &&
+                rect.bottom >= window.innerHeight * threshold
+            );
+        }
+
+        function handleScroll() {
+            sections.forEach((section) => {
+                if (isInViewport(section)) {
+                    section.classList.add("in-viewport");
+                }
+            });
+        }
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = (navLinks.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        handleScroll();
+
+        window.addEventListener("scroll", handleScroll);
+
+        function showSlides() {
+            const slideshows = document.querySelectorAll(".slideshow-container");
+
+            slideshows.forEach(slideshow => {
+                let slides = slideshow.getElementsByClassName("mySlides");
+                let currentSlide = 0;
+
+                function displaySlide() {
+                    slides[currentSlide].style.display = "none";
+
+                    currentSlide = (currentSlide + 1) % slides.length;
+
+                    slides[currentSlide].style.display = "block";
+                }
+
+                displaySlide();
+                setInterval(displaySlide, 1500);
+            });
+        }
+
+        showSlides();
+
+         
+    </script>
+
+</body>
+
+</html>
