@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         @font-face {
+            font-family: my;
+            src: url('./PicturamaAlternate_PERSONAL_USE_ONLY.otf');
+        }
+          @font-face {
+            font-family: cool;
+            src: url('./coolvetica\ rg.otf');
+        }
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+    font-family: cool;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+p {
+    color: black;
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+}
+
+.section-title {
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+.section-title span {
+    color: #40010D;
+}
+
+.cta {
+    display: inline-block;
+    padding: 10px 30px;
+    color: #E8E6DA;
+    background-color: transparent;
+    border: 2px solid #40010D;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 30px;
+    transition: 0.3s ease;
+    transition-property: background-color, color;
+}
+
+.cta:hover {
+    color: #E8E6DA;
+    background-color: #40010D;
+}
+
+
+
+
+
+#header {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+
+#header .header {
+    min-height: 8vh;
+    background-color: #A67356;
+    transition: 0.3s ease background-color;
+}
+
+#header .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 0 10px;
+}
+
+#header .nav-list ul {
+    list-style: none;
+    position: absolute;
+    background-color: #A67356;
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: 0.5s ease left;
+}
+
+#header .nav-list ul.active {
+    left: 0%;
+}
+
+#header .nav-list ul a {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+    color: #E8E6DA;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+    margin: -13px;
+}
+
+#header .nav-list ul a::after {
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(240, 248, 255, 0.021);
+    font-size: 13rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: 0.3s ease letter-spacing;
+}
+
+#header .nav-list ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(1);
+    letter-spacing: initial;
+}
+
+#header .nav-list ul li:hover a {
+    color: #40010D;
+}
+
+#header .hamburger {
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px solid #E8E6DA;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(0.8);
+    margin-right: 20px;
+}
+
+#header .hamburger:after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid #E8E6DA;
+    animation: hamburger_puls 1s ease infinite;
+}
+
+#header .hamburger .bar {
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: #E8E6DA;
+    z-index: -1;
+}
+
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: #E8E6DA;
+    transition: 0.3s ease;
+    transition-property: top, bottom;
+}
+
+#header .hamburger .bar::after {
+    top: 8px;
+}
+
+#header .hamburger .bar::before {
+    bottom: 8px;
+}
+
+#header .hamburger.active .bar::before {
+    bottom: 0;
+}
+
+#header .hamburger.active .bar::after {
+    top: 0;
+}
+
+
+#hero {
+    background-image: url(../portfolio/Screenshot\ 2023-11-14\ at\ 12.42.53\ PM.png);
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+
+#hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+#hero .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    justify-content: flex-start;
+}
+
+#hero h1 {
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal 0.5s ease forwards;
+    animation-delay: 1s  color#E8E6DA;
+}
+
+#hero h1:nth-child(1) {
+    animation-delay: 1s;
+}
+
+#hero h1:nth-child(2) {
+    animation: text_reveal_name 0.5s ease forwards;
+    animation-delay: 2s;
+    font-family: my;
+}
+
+#hero h1:nth-child(3) {
+    animation-delay: 3s;
+}
+
+#hero h1 span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: #40010D;
+    animation: text_reveal_box 1s ease;
+    animation-delay: 0.5s;
+}
+
+#hero h1:nth-child(1) span {
+    animation-delay: 0.5s;
+}
+
+#hero h1:nth-child(2) span {
+    animation-delay: 1.5s;
+}
+
+#hero h1:nth-child(3) span {
+    animation-delay: 2.5s;
+}
+
+
+#services .services {
+    flex-direction: column;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#services .service-top {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#services .service-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+#services .service-item {
+    flex-basis: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-image: url(../portfolio/aespa_drama_teaser_the_giant_winter_3.jpeg);
+    background-size: cover;
+    margin: 10px 5%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#services .service-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg, #40010D 0%, #A67356 100%);
+    opacity: 0.9;
+    z-index: -1;
+}
+
+#services .service-bottom .icon {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+#services .service-item h2 {
+    font-size: 2rem;
+    color: #E8E6DA;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#services .service-item p {
+    color: #E8E6DA;
+    text-align: left;
+}
+
+
+#projects .projects {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#projects .projects-header h1 {
+    margin-bottom: 50px;
+}
+
+#projects .all-projects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#projects .project-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#projects .project-info {
+    padding: 30px;
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(60deg, #40010D 0%, #A67356 100%);
+    color: #E8E6DA;
+}
+
+#projects .project-info h1 {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+#projects .project-info h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+#projects .project-info p {
+    color: #E8E6DA;
+}
+
+#projects .project-img {
+    flex-basis: 50%;
+    height: fit-content;
+    overflow: hidden;
+    position: relative;
+}
+
+#projects .project-img:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+   
+}
+
+#projects .project-img img {
+    transition: 0.3s ease transform;
+    width:60%;
+    height:auto;
+padding-left: 120px;
+padding-top: 20px;}
+
+#projects .project-item:hover .project-img img {
+    transform: scale(1.1);
+}
+
+
+#about .about {
+    flex-direction: column-reverse;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+#about .col-left {
+    width: 250px;
+    height: 360px;
+}
+
+#about .col-right {
+    width: 100%;
+}
+
+#about .col-right h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    margin-bottom: 10px;
+}
+
+#about .col-right p {
+    margin-bottom: 20px;
+}
+
+#about .col-right .cta {
+    color: black;
+    margin-bottom: 50px;
+    padding: 10px 20px;
+    font-size: 2rem;
+}
+
+#about .col-left .about-img {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border: 10px solid #E8E6DA;
+}
+
+#about .col-left .about-img::after {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 19px;
+    height: 98%;
+    width: 98%;
+    border: 7px solid #40010D;
+    z-index: -1;
+}
+
+
+#contact .contact {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+#contact .contact-items {
+    
+    width: 100%;
+}
+
+#contact .contact-item {
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 18px 0 #0000002c;
+    transition: 0.3s ease box-shadow;
+}
+
+#contact .contact-item:hover {
+    box-shadow: 0px 0px 5px 0 #0000002c;
+}
+
+#contact .icon {
+    width: 70px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#contact .contact-info h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#contact .contact-info h2 {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 500;
+}
+
+
+#footer {
+    background-image: linear-gradient(60deg, #A67356 0%, #40010D 100%);
+}
+
+#footer .footer {
+    min-height: 200px;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+#footer h2 {
+    color: #E8E6DA;
+    font-weight: 500;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+#footer p {
+    color: #E8E6DA;
+    font-size: 1.3rem;
+}
+
+
+@keyframes hamburger_puls {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+
+@keyframes text_reveal_box {
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes text_reveal {
+    100% {
+        color: #E8E6DA;
+    }
+}
+
+@keyframes text_reveal_name {
+    100% {
+        color: #BA906A;
+        font-weight: 100;
+        
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .cta {
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+
+    h1.section-title {
+        font-size: 6rem;
+    }
+
+  
+    #hero h1 {
+        font-size: 7rem;
+    }
+
+   
+
+   
+    #services .service-bottom .service-item {
+        flex-basis: 45%;
+        margin: 2.5%;
+    }
+
+  
+    #projects .project-item {
+        flex-direction: row;
+    }
+
+    #projects .project-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    #projects .project-item {
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    #projects .all-projects .project-info {
+        height: 100%;
+    }
+
+    #projects .all-projects .project-img {
+        height: 100%;
+        
+    }
+
+  
+    #about .about {
+        flex-direction: row;
+    }
+
+    #about .col-left {
+        width: 600px;
+        height: 400px;
+        padding-left: 60px;
+    }
+
+    #about .about .col-left .about-img::after {
+        left: -45px;
+        top: 34px;
+        height: 98%;
+        width: 98%;
+        border: 10px solid #40010D;
+    }
+
+    #about .col-right {
+        text-align: left;
+        padding: 30px;
+    }
+
+    #about .col-right h1 {
+        text-align: left;
+    }
+
+   
+    #contact .contact {
+        flex-direction: column;
+        padding: 100px 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 20vh;
+    }
+
+    #contact .contact-items {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 0;
+    }
+
+    #contact .contact-item {
+        width: 30%;
+        margin: 0;
+        flex-direction: row;
+    }
+
+    #contact .contact-item .icon {
+        height: 100px;
+        width: 100px;
+    }
+
+    #contact .contact-item .icon img {
+        object-fit: contain;
+    }
+
+    #contact .contact-item .contact-info {
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+   
+    #header .hamburger {
+        display: none;
+    }
+
+    #header .nav-list ul {
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+
+    #header .nav-list ul li {
+        display: inline-block;
+    }
+
+    #header .nav-list ul li a {
+        font-size: 1.8rem;
+    }
+
+    #header .nav-list ul a:after {
+        display: none;
+    }
+
+   
+
+    #services .service-bottom .service-item {
+        flex-basis: 22%;
+        margin: 1.5%;
+    }
+}
+
+</style>
+    <title>My Website</title>
+</head>
+
+<body>
+  
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar">
+                <div class="brand">
+                    <a href="#hero">
+<img style="width:45%" src="./haider-13-11-2023.png"         alt="logo" >   </a>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                    </div>
+                    <ul>
+                        <li><a href="#hero" data-after="Home">Home</a></li>
+                        <li><a href="#services" data-after="Service">Services</a></li>
+                        <li><a href="#projects" data-after="Projects">Projects</a></li>
+                        <li><a href="#about" data-after="About">About</a></li>
+                        <li><a href="#contact" data-after="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <section id="hero">
+        <div class="hero container">
+            <div>
+                <h1>Hello, <span></span></h1>
+                <h1>I'm Haider Alkhatat <span></span></h1>
+                <h1>Graphic Designer <span></span></h1>
+                <a href="#projects" type="button" class="cta">Portfolio</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <div class="services container">
+            <div class="service-top">
+                <h1 class="section-title">Services</h1>
+                <p>I am skilled in a wide range of multimedia fields, including site design, graphic design, picture design, and video
+                editing. I create visually attractive and fascinating material with a creative touch and an attention to detail that
+                fulfills a variety of multimedia demands. I contribute variety and experience to every job, whether it be creating
+                visually stunning graphics, sculpting user-friendly and aesthetically beautiful websites, or artistically improving
+                pictures.</p>
+            </div>
+            <div class="service-bottom">
+                <div class="service-item">
+                    <div class="icon"><img src="https://img.icons8.com/color/48/web-design.png" /></div>
+                    <h2>Web Design</h2>
+                    <p>Proficient in web design, I craft visually appealing and user-friendly websites, using HTML, CSS and Javascript, employing design principles and coding
+                    skills for optimal functionality.</p>
+                        
+                   
+                </div>
+                <div class="service-item">
+                    <div class="icon"><img src="https://img.icons8.com/parakeet/48/video.png" alt="video" /></div>
+                    <h2>Video Editing</h2>
+                    <p>I'm skilled in video editing, using professional software like Adobe Premiere Pro and After Effects to create polished and engaging content for various projects.</p>
+                </div>
+                <div class="service-item">
+                    <div class="icon"><img src="https://img.icons8.com/external-itim2101-blue-itim2101/64/external-graphic-design-graphic-and-design-itim2101-blue-itim2101-7.png" alt="external-graphic-design-graphic-and-design-itim2101-blue-itim2101-7" /></div>
+                    <h2>Graphic Design</h2>
+                    <p>Skilled in graphic design, I create visually engaging content, using creativity and design tools, such as Adobe Illustrator, Photoshop and InDesign  to convey impactful
+                    messages effectively.</p>
+                </div>
+                <div class="service-item">
+                    <div class="icon"><img width="48" height="48" src="https://img.icons8.com/external-phatplus-lineal-phatplus/64/22C3E6/external-photo-editing-photography-phatplus-lineal-phatplus.png" alt="external-photo-editing-photography-phatplus-lineal-phatplus"/></div>
+                    <h2>Photo Editing</h2>
+                    <p>Proficient in photo design, I craft visually appealing images, utilizing editing software, such as Adobe Lightroom to enhance and create stunning
+                    visual content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <section id="projects">
+        <div class="projects container">
+            <div class="projects-header">
+                <h1 class="section-title">Past <span>Projects</span></h1>
+            </div>
+            <div class="all-projects">
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>The 2024 Quebec Cinema College Prize Poster</h1>
+                        <h2>French Communications </h2>
+                        <p>This project was done to promote the 2024 Quebec Cinema College Prize, and we had 
+                            to create a poster that would be used to promote the event. The poster was created using Adobe Illustrator and Photoshop. Showcasing
+                            all of the movies who were up for the prize with the concept of a red room, the red light on top and all of the
+                            movies are hung with a film roll to really show the concept.
+                        </p>
+                    </div>
+                    <div class="project-img">
+                        <img src="../test sites/cinema.png" alt="img">
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Type, Colour and Photography Posters</h1>
+                        <h2>Graphic Design : Design Principles</h2>
+                        <p>This project was to pick a song and design a poster with the emotion and vibes that the song portrayed, and I chose
+                            Aespa's Dreams Come True, with the help of Illustrator. I wanted to show the dreamy and euphoric style of the song with the colors that were prominent in the album design 
+                        </p>
+                    </div>
+                    <div class="project-img">
+                        <img src="../test sites/aespa.png" alt="img">
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Black History Month Poster</h1>
+                        <h2>Graphic Design : Typography and Creative Design</h2>
+                        <p>This was a project for Black History Month, which had to be in french and english together, done on Illustrator. I wanted to use the pan-African colors with the key words 
+                            in english and french with the background being prominent figures in black history.
+                        </p>
+                    </div>
+                    <div class="project-img">
+                        <img src="../test sites/history.png" alt="img">
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Four Animations</h1>
+                        <h2>Web 3 : Animation and Dynamic Websites</h2>
+                        <p>This was an animations project that had to be a continuously storyline with the help of separate animations style, like SVG, Photoshop (Frame by frame), and Sprite sheet. I wanted to be creative and chose Hello Kitty as a nun.  <a href="/web3/nun.html">Click Here to see the whole project</a> </p>
+                    </div>
+                    <div class="project-img">
+                        <img src="../test sites/kitty.png " style="height: 100%; width: 90%; padding-left: 20px;" alt="img">
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Main Website</h1>
+                        <h2>Micromedia </h2>
+                        <p>This is my main index page that links to all of my web projects since the first semester here, and I wanted to make it interesting by using a Javascript to have japanese characters go down in a line to lead you to all of the links <a href="/index.html">Click here to see it</a> et!</p>
+                    </div>
+                    <div class="project-img">
+                        <img src="../test sites/Screenshot 2023-11-19 at 1.59.34 AM.png" style="width: 100%; padding-right: 30px;"  heialt="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <section id="about">
+        <div class="about container">
+            <div class="col-left">
+                <div class="about-img">
+                    <img src="./IMG_0677.JPEG" alt="img">
+                </div>
+            </div>
+            <div class="col-right">
+                <h1 class="section-title">About <span>me</span></h1>
+                <h2>Graphic Designer</h2>
+                <p>Hey there, I’m Haider, a Montreal based graphic and web
+                design student on a mission to combine my love for
+                creativity and technology. Currently pursuing my
+                degree,with the help of Illustrator, InDesign and HTML.
+                I’ve been learning the ropes of graphic and web design. I
+                like to bring designs to life that not only look good but
+                also work seamlessly. Outside of my studies, you’ll find
+                me exploring art, attending design events, and staying
+                up-to-date with the latest trends in the field. I’m really
+                excited about the journey ahead!</p>
+                <a href="../test sites/cv.png" class="cta">Download Resume</a>
+            </div>
+        </div>
+    </section>
+   
+    <section id="contact">
+        <div class="contact container">
+            <div>
+                <h1 class="section-title">Contact <span>info</span></h1>
+            </div>
+            <div class="contact-items">
+                <div class="contact-item">
+                    <div class="icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADeUlEQVR4nO2YS2gTQRiAf/GBtrSC9bWbWkUP1SpFbDPTShXBq+hJBfGoJw8e9GR9o3ixJ0Hc3bSdTVofEWoVWu1BUmNm0mKamWhVUCt40IOKL1BRwZWNLWxeTXswmcV8MLewzJf//2fm/wFKlCjxnxAMzlzqI5sVg7QphvlM1c0vqmEeAplZHgrNVXRzh6KbHapB3qmGaaUsnfxeqnV4QUZwNLHdS/nLFV3XUzedIWHeA9lATBzHTFj2Wtcfmlzgr8Q2kAlMxecJAUS5tYxczicxatcIyAKi4smEgL3W3BrIGwXFIPtAFhDlB5wC3vsjlqc9MLmAbr5e4veXgww0xGJlmPL3Tonanv78tWCYx0AWEOOnU6IQHrGq80TBvhsWBAKVIAPNVCxGjH9PqYWbU6gFLbABZAFTcckpgCJxq8a8MokAGYEToVkgC02MezAVX50S9QPhHOlDHiha90KQDUz5WaeAvVZd603/58MrNW0+yAgaGqrETLxxCjSGY1Z1Z9dE4Q4omlYGMoOjYnd6FOxUUnTyvsrnqwA3gCi/nS5R29M/Bm6hiXEPYvxDyt1A47+8ww8bwS3gCN+bHgXE+Avv8HAVuAVMRXeGBBWDdaOjc8AN1AtRjpkYTZfAVBCwrBngBprpw9WYik9Z0uk8uAUc5Vsw5T8yJcRxcAs4wvdnpNJfiRNT/UaDps1W9c71RbvJcZS3ZpPAVFzIVxOqaVYpOolPPMVVnRwtSlOEGD+XQ4LkOp3svkHVyYMsPcVbRSMHC/6qxZSfzJpOVERawvFFzt9WtwXnqQYZzNNbPPX4/DsLKoFY4kgOiecNLJFsdOy3k/0AnEJ7ao332qGCDs+ShU3Fz3QJ+9lR29P3SjHIh6luXnVMAFUfOVwwCS9NbMVMfMwWjfo7g9ayju7pCRj22Mb8BIWkMZKoxYw/yiZh9xOrrt6YrsAzKMazAzERyHpCjfcUNZP22CmDszYoFl4W35MrpVCEJ6cd+UY2ih7YBMUEDSWqEeX9uaLReD+WHJ552v3Z5k1vpZm9NjG+CzHxOqdIOGat7r1jedq7nEdpB8jExsjTCkTFmfSRTcqxGxmx1vbdtZb7r9kCO0DaNpXyi4iKb7lEEBVjdcGg3M1SSzi+CFN+ClPxLkMimtgObqEhFitLjvapeJw8taK8tdh7KlGiBPxb/gAwKJWlsMaWKAAAAABJRU5ErkJggg=="> /></div>
+                    <div class="contact-info">
+                        <h1>Phone</h1>
+                        <h2>+1 (514)-605-5071</h2>
+                      
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon"><<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkElEQVR4nGNgGAWjYBQMA+Decfz/YMQMyA6ccebvoMLuow48MxqCfwdXGoyeefV/+96PA5452vd+BLsFw4G1W1//D5pw7n/srKv/uw58prvDeg59+Z80/+b/gP6z/8s3vMCei6ed+gOW9O87A1bcf+QbzR3Wf/T7/4wld/779Z35X7Tmyf9pp34TLmamnPz1v2DVo/++vaf/56548H/SiZ9Ud9iUE7/ADgLZkbX03v/Jx3+SXg5OOILqu6lQ31GCp0FjyQ8aS32Hv1FeUHcfhKaPCZD0Mf3MH9Idd/ovJJ1PJC6dk1WTtIFy2Iyr/0MmXwBbNoNIxzXtev8/fMql/xHTL/9v2fOe9lUdyMKwqRf/R8648r91zwec6tr3ffwfM/MK3EPT6VkXg6K5ctMLcLQnzr0BdjQoM4EwiA0SA8mB1JCTJKjWWJh26vf/sg3P/0dNv/Lft+c0GIPYIDFYkUEOHm3NzCAz5EZDcAaFITcagjNGQ/AMddLQjNE0eGY0BP+TVMwMRswwCkbBKBgGAACeBoI4HMFvEAAAAABJRU5ErkJggg=="> /></div>
+                    <div class="contact-info">
+                        <h1>Email</h1>
+                        <h2>haideralkhatat3@gmail.com</h2>
+                     
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon"><<img src="data:image/png;base64,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">/></div>
+                    <div class="contact-info">
+                        <h1>Address</h1>
+                        <h2>Montreal, Quebec, Canada</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <section id="footer">
+        <div class="footer container">
+            <p>Copyright © Haider</p>
+        </div>
+    </section>
+   
+    <script>const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
+        const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
+        const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
+        const header = document.querySelector('.header.container');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobile_menu.classList.toggle('active');
+        });
+
+        document.addEventListener('scroll', () => {
+            var scroll_position = window.scrollY;
+            if (scroll_position > 250) {
+                header.style.backgroundColor = '#A67356';
+            } else {
+                header.style.backgroundColor = 'transparent';
+            }
+        });
+
+        menu_item.forEach((item) => {
+            item.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobile_menu.classList.toggle('active');
+            });
+        });</script>
+</body>
+
+</html>
