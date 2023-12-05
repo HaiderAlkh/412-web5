@@ -5,235 +5,341 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LEXX</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Prototype', sans-serif;
-            background-color: #1a1a1a;
-            color: white;
-        }
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
 
-        .parallax-header {
-            background-image: url('/web5/images/marcela-laskoski-YrtFlrLo2DQ-unsplash.jpeg');
-            background-size: cover;
-            background-attachment: fixed;
-            height: 600px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Prototype', sans-serif;
+        background-color: #1a1a1a;
+        color: white;
+    }
 
-        .header {
-            background-color: black;
-            width: 100%;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+   
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .parallax-header {
+        background-image: url('/web5/images/marcela-laskoski-YrtFlrLo2DQ-unsplash.jpeg');
+        background-size: cover;
+        background-attachment: fixed;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .logo img {
-            height: 80px;
-            margin-right: 0px;
-            animation: fadeIn 2s ease;
-        }
+    .header {
+        background-color: black;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        h1 {
-            margin: 0;
-            margin-right: 400px;
-            font-family: MyFirstFont, sans-serif;
-            animation: fadeIn 2s ease;
-            font-size: 35px;
-        }
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        .navbar {
-            width: 50%;
-            display: flex;
-            justify-content: flex-end;
-            font-family: myFirsFont;
-            animation: fadeIn 2s ease;
-        }
+    .logo img {
+        height: 80px;
+        margin-right: 0px;
+        animation: fadeIn 2s ease;
+        position: relative;
+    }
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            transition: color 0.3s ease, transform 0.5s ease;
+    h1 {
+        margin: 0;
+        margin-right: 400px;
+        font-family: 'MyFirstFont', sans-serif;
+        animation: fadeIn 2s ease;
+        font-size: 35px;
+    }
 
-        }
+    h2 {
+        font-family: 'Verdana, Geneva, Tahoma, sans-serif';
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+    }
 
-        .navbar a:hover {
-            color: #FF4500;
-            transform: scale(1.2);
 
-        }
+    .navbar {
+        width: 60%;
+        display: flex;
+        justify-content: flex-end;
+        font-family: 'myFirsFont';
+        animation: fadeIn 2s ease;
+        font-size: 21px;
+        letter-spacing: 1px;
+    }
 
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-            font-size: 24px;
-            color: white;
-            font-family: myFirsFont;
-        }
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        margin: 0 20px;
+        transition: color 0.3s ease, transform 0.5s ease;
+    }
 
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background-color: black;
-            width: 100%;
-            z-index: 999;
-            display: none;
-        }
+    .navbar a:hover {
+        color: #FF4500;
+        transform: scale(1.2);
+    }
 
-        .nav-links a {
-            padding: 10px;
-            text-align: center;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-            width: 100%;
-        }
+    .menu-icon {
+        display: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+        font-family: 'myFirsFont';
+    }
 
-        .nav-links a:hover {
-            background-color: #333;
-        }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: black;
+        width: 100%;
+        z-index: 999;
+    }
 
-        .section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 0;
+    .nav-links a {
+        padding: 10px;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        width: 100%;
+    }
+
+    .nav-links a:hover {
+        background-color: #333;
+    }
+
+   
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 0;
+        opacity: 0;
+        animation: fadeIn 2s ease;
+        animation-fill-mode: forwards;
+        height: 100vh;
+    }
+
+    .section-content {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        animation: slideInLeft 1.5s ease;
+        max-width: 1200px;
+    }
+
+    .section-image img {
+        max-width: 1200px;
+        height: 100%;
+    }
+
+    .section-text {
+        width: 50%;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.7);
+        text-align: center;
+        
+    }
+
+    .section-text h2 {
+        margin-top: 0;
+        margin-bottom: 15px;
+        font-size: 39px;
+        letter-spacing: 5px;
+        font-family: 'second';
+    }
+
+    .section-text p {
+        line-height: 1.6;
+        margin-bottom: 15px;
+        font-size: 20px;
+        
+    }
+
+    .section-text ul {
+        margin-bottom: 15px;
+        padding-left: 20px;
+        font-size: 30px;
+    }
+
+    .section-text li {
+        margin-bottom: 8px;
+    }
+
+    .section-image {
+        width: 50%;
+    }
+
+   
+
+    footer {
+        text-align: center;
+        font-size: 15px;
+        margin-top: 30px;
+        padding: 50px;
+        background-color: black;
+        color: white;
+    }
+
+    @font-face {
+        font-family: 'myFirstFont';
+        src: url('../images/Metropolitan.ttf');
+    }
+     @font-face {
+        font-family: 'Second';
+        src: url('./STAMPWRITER-KIT.ttf');
+    }
+
+    @font-face {
+        font-family: 'myFirsFont';
+        src: url('../images/LEDLIGHT.otf');
+    }
+@font-face {
+        font-family: 'third';
+        src: url('./linowrite.ttf');
+    }
+    @keyframes fadeIn {
+        from {
             opacity: 0;
-            animation: fadeIn 2s ease;
-            animation-fill-mode: forwards;
-            height: 80vh;
         }
 
-        .section-content {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            animation: slideInLeft 1.5s ease;
-            width: 100%;
-            max-width: 1200px;
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-100%);
         }
 
-        .section-image img {
-            width: 100%;
-            height: auto;
+        to {
+            opacity: 1;
+            transform: translateX(0);
         }
+    }
 
-        .section-text {
-            width: 50%;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: rgba(0, 0, 0, 0.7);
-            text-align: left;
-        }
+    
 
-        .section-text h2 {
-            margin-top: 0;
-        }
+    .slideshow-container {
+        max-width: 1200px;
+        height: 500px;
+        position: relative;
+        overflow: hidden;
+    }
 
-        .section-image {
-            width: 50%;
-        }
+    .mySlides {
+        display: none;
+    }
 
-        @font-face {
-            font-family: myFirstFont;
-            src: url('../images/Metropolitan.ttf');
-        }
+    .mySlides img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-        @font-face {
-            font-family: myFirsFont;
-            src: url('../images/LEDLIGHT.otf');
-        }
+    .fade {
+        animation: fade 1.5s ease infinite;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+    
+@media only screen and (max-width: 1010px ) and (min-width: 200px) {
+    .navbar {
+        display: none;
+    }
 
-            to {
-                opacity: 1;
-            }
-        }
+    .menu-icon {
+        display: block;
+        top: 40px;
+        right: 40px; 
+        z-index: 1000;
+        position: fixed;
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
 
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+    }
 
-        .slideshow-container {
-            max-width: 100%;
-            height: 400px;
-            position: relative;
-            margin-top: 20px;
-            overflow: hidden;
-        }
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: black;
+        width: 100%;
+        z-index: 999;
+        display: none;
+    }
+     .nav-links.show {
+        display: flex; 
+    }
 
-        .mySlides {
-            display: none;
-        }
+ 
+    h1 {
+        font-size: 20px;
+    }
 
-        .mySlides img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    h2 {
+        font-size: 18px;
+    }
 
-        .fade {
-            animation: fade 1.5s ease infinite;
-        }
+    .navbar a {
+        font-size: 16px;
+    }
 
-        @media only screen and (max-width: 768px) {
+    .section-text h2 {
+        font-size: 28px;
+    }
 
-           
-            .navbar {
-                display: none;
-            }
+    .section-text p {
+        font-size: 16px;
+    }
 
-            .menu-icon {
-                display: block;
-            }
+    .section-text ul {
+        font-size: 18px;
+    }
 
-            .nav-links {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background-color: black;
-                width: 100%;
-                z-index: 999;
-                display: none;
-            }
-        }
-    </style>
+    .footer {
+        font-size: 13px;
+    }
+
+  
+    .section-image img {
+        max-width: auto;
+        height: auto;
+    }
+
+    .slideshow-container {
+        max-width: 100%;
+        height: 200px;
+    }
+    
+}
+
+   
+</style>
 </head>
 
 <body>
@@ -273,15 +379,15 @@
                     <p>My musical journey knows no limits. I blend genres seamlessly, ensuring every listener finds
                         their
                         rhythm on the dance floor.</p>
-                    <p>Join me on this sonic journey, and let's create an unforgettable musical experience together!</p>
+                 
                 </div>
                 <div class="section-image">
                     <div class="slideshow-container">
                         <div class="mySlides fade">
-                            <img src="../images/IMAGE1.JPG" alt="DJ Lexx" />
+                            <img src="../images/image-1.JPG" alt="DJ Lexx" />
                         </div>
                         <div class="mySlides fade">
-                            <img src="../images/aleksandr-popov-k6MxhKAC6gk-unsplash.jpeg" alt="DJ Lexx" />
+                            <img src="./jorik-kleen-iKuT7niw8vE-unsplash.jpg" alt="DJ Lexx" />
                         </div>
                     </div>
                 </div>
@@ -296,7 +402,7 @@
                 <div class="section-image">
                     <div class="slideshow-container">
                         <div class="mySlides fade">
-                            <img src="../images/IMAG2.JPG" alt="DJ Lexx" />
+                            <img src="../images/imag2.jpg" alt="DJ Lexx" />
                         </div>
                         <div class="mySlides fade">
                             <img src="../images/flavio-anibal-m6nTS8pgHbw-unsplash.jpeg" alt="DJ Lexx" />
@@ -308,7 +414,7 @@
                     <p>Book DJ Lexx for your next event! Whether it's a private party, club night, or corporate
                         function, I'll bring the perfect beats to make your event unforgettable.</p>
                     <p>Choose from a variety of booking options:</p>
-                    <ul>
+                    <ul> 
                         <li>One Session (60min) - $450</li>
                         <li>Extended Set (up to 3 hours) - $1200</li>
                         <li>All-Night Party (4+ hours) - $2500</li>
@@ -327,16 +433,21 @@
                     <p>Let's connect and make your event unforgettable! Feel free to reach out through the following
                         channels:</p>
                     <ul>
-                        <li>Snapchat - @***.lex</li>
-                        <li>Email - djlexx@gmail.com</li>
-                        <li>Phone - +1 (555) 123-4567</li>
+                    <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACQ0lEQVR4nO3ZO2sUURyG8fGShBhBAgGxUyy8gSJio6KgTSCFVn4DEbFVC0FIUngBg4VgI64aFfFCksIyioJIIhoRCX4FmyDkYpQEfjJ4qrBxL5k9M4F9YJvh7Jz32dlzmf9JkiZNVgfYgOO4gAEM4hFu4RJOpG2SooIdKGFaZdI297EzKQpow20sqJ2F8N22vCW2YNzK+ZjeK8lJYiMmZMc3bMpDZFj2jMSW6NE4emJJrMNkA0W+Y30MkUMaz+EYIv0RRPpjiLyIIPI8hsi7CCJvY4h8jiDyJYbIhwgin2KIjEYQGY8h8iqCyJsYIi8jiIxkHXovHqe/EK7iCIYiiAyHl7M7YXf9FAfrldiFecVhvq4XMZxVPM7UI7IVPxWHWWyrWSTI7I+0blRiAgfqklgidBR3MRMx/Ezo8xjWrFhiidD2OosMtbKQ9pVp+CUim7EYQWQx7auRIjfE43qjJPZEXld+Y18jinBfxWcS7VlJrA3127wYTDNk8STSGm3elOouq2I3xhSHsXScVhu+Hd3hccaYZmtlMWTrXnbs4ArmrB5+pZnLicTcfmTFXDmRe1YfpXIirbiMKcVnKmRt/d+AbwmD6Rpe40/eqf3LMBoypdlaqpq9cig2VGKo5uBlRM7lbYHzWYika8uTcM73LFTjL6I3zOnVnOJWYjocYfeGI+yBUDl5j4foWLFIFaJdIUS9pOWmrqQo4CR+1CCQtj2VFBF04maoeCzHbGjTmRQddOA0+vAgfPrCtcb/35s0STLjL7QZq3M1W4m7AAAAAElFTkSuQmCC">
+                <br>Snapchat - <b>@fk.lex</b></li>
+                        <li><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/0lEQVR4nO3YTYhNcRjH8b/3vCVvJUQUyWKKbKQkpWZFYWGBsrG1nOwsLGZriR2ZJDuUWEgpSlJS3sJGyEsh78N8dOq5dbpNY5q5Z+69/8637j2L8z/PyznneZ7f/6RUU1NTU9MOZEKSUSJ/ZJJILz7qXoZwvFEnK3BX9/EFuxtJbI7jLAzoHh5gTcS+sPgbRF+pix3Gb53NAGZHvBvwoty1zmBmnNyKtzqPwaabfgDfhmu/97AyFi3HHZ3DO2yP2GbgxP/myPumC05rP7ewNGJahtujHYjD1c0v7eEkppde+Tdjmeznim4WRrbgtYnjBw6F70k4MlITGo1EuY9VYXAxbqieZ+gJn3NwoVVa6wN2hOGp6FcdlzE/fK3Fw1aLxkKT9RWPOZzsx3etlRr9mBz2d+JTler3fNMwemn8FFqvN2xOwbFIrHIZ/wjrwvEiXDd2ihpcXbJ1baL3I5+xq3QXx1I3Z0tdceN4nm5q8Xu9D19Hcd3Pop2W5tTB8dZb0houYV4E1YPnI6x9VVLchXI41Wlb3SdYHwEuwNVh1tzEkiq0XFLRRiemcdGu/5akxrQ4t63V6jppPUPRPht1swd7S8kdreI7QVIdVxoTOpKYi4vd+jnoKTbF73GVjpJMSDIhyYQkE5JMSDIhyYQkE5JMSDIhyYRUU1NTU5PawD95ZgOCo89UiQAAAABJRU5ErkJggg==">
+                          <br>  Email - <b>djlexx@gmail.com</b></li>
+                        <li><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACEElEQVR4nO3ZzYtNYRzA8Z/XUWJDGKJk5WUpWUrsyEYUNanBn6D8BbLDCv+BxcR4jSxQkxoLRnmLImXl5UZIqI9OcxY3Zu7c59zuuc9kPn/B/fac+5zn+Z2IGTN6B3swii94gK0xnWAezvpXA6tiOsAiXDe5a5E7rMQTUxuIXGE5XmjPJ/RHbjAfI9IMR25wXDUHIyd4UzHkA1ZELvBVdUORC7zUmf2RAwx1GPI8coCjHYZ8jxxgGX53EHI/coHbHYQM5HbSreIRZkcuMAtjFUJ2Rm6wLzHicuTI+KrcSwgZjFxhI34mnILXRa5wMmFVHmJh5Ah95Q9sV7F190WOsAHfEmIuYm7kCEekOV9sGJEjE09TWjkVGY+G7iTGnM5yZYwPJl5VeMzmRG6wBm8TYy5hQeQGm/AxMebmRO+ZYrVwqBzF/sKz4ohUZ8yWchacYqz5BIDtLd5TV4pBYV0xO/AjMaY4zgziapvTmQN13l9SY1T4j/XXEbOtwmOWqlHMFOqI2Yz3uu8GVtdx9H9XQ0yj2Gy6HbO2wkuzitGuhjSNlVJumFV87npI0yeKc10MGaklpCnocOJ9pl27ag0pY9Yn3jSncqb2iL+uzScSBhqttt/e30DLLfquah5jcWQ2N9ub+Lg9Le5DkaMyaDdulUf4yRRb+dKYDrCkPBVfKD4YlZ8BX+NYcc3u9e+b8d/6A8BzVur0abPMAAAAAElFTkSuQmCC">
+                           <br> Phone - <b>+1 (438) 183-0537</b></li>
                     </ul>
-                    <p>Looking forward to hearing from you!</p>
+            
                 </div>
                 <div class="section-image">
                     <div class="slideshow-container">
                         <div class="mySlides fade">
-                            <img src="../images/image3.JPG" alt="DJ Lexx" />
+                            <img src="../images/image-3.JPG" alt="DJ Lexx" />
                         </div>
                         <div class="mySlides fade">
                             <img src="../images/maximalfocus-bAh-EUSSlyo-unsplash.jpeg" alt="DJ Lexx" />
@@ -346,58 +457,60 @@
             </div>
         </div>
     </section>
+<footer>
+<h3>© LEXX 2023</h3>
+</footer>
 
     <script>
-        const sections = document.querySelectorAll(".section");
+         const sections = document.querySelectorAll(".section");
 
-        function isInViewport(element) {
-            const rect = element.getBoundingClientRect();
-            const threshold = 0.9;
-            return (
-                rect.top <= window.innerHeight * (1 - threshold) &&
-                rect.bottom >= window.innerHeight * threshold
-            );
-        }
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                const threshold = 0.9;
+                return (
+                    rect.top <= window.innerHeight * (1 - threshold) &&
+                    rect.bottom >= window.innerHeight * threshold
+                );
+            }
 
-        function handleScroll() {
-            sections.forEach((section) => {
-                if (isInViewport(section)) {
-                    section.classList.add("in-viewport");
-                }
-            });
-        }
+            function handleScroll() {
+                sections.forEach((section) => {
+                    if (isInViewport(section)) {
+                        section.classList.add("in-viewport");
+                    }
+                });
+            }
 
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = (navLinks.style.display === 'flex') ? 'none' : 'flex';
-        }
+            function toggleMenu() {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.style.display = (navLinks.style.display === 'flex') ? 'none' : 'flex';
+            }
 
-        handleScroll();
+            handleScroll();
 
-        window.addEventListener("scroll", handleScroll);
+            window.addEventListener("scroll", handleScroll);
 
-        function showSlides() {
-            const slideshows = document.querySelectorAll(".slideshow-container");
+            function showSlides() {
+                const slideshows = document.querySelectorAll(".slideshow-container");
 
-            slideshows.forEach(slideshow => {
-                let slides = slideshow.getElementsByClassName("mySlides");
-                let currentSlide = 0;
+                slideshows.forEach(slideshow => {
+                    let slides = slideshow.getElementsByClassName("mySlides");
+                    let currentSlide = 0;
 
-                function displaySlide() {
-                    slides[currentSlide].style.display = "none";
+                    function displaySlide() {
+                        slides[currentSlide].style.display = "none";
 
-                    currentSlide = (currentSlide + 1) % slides.length;
+                        currentSlide = (currentSlide + 1) % slides.length;
 
-                    slides[currentSlide].style.display = "block";
-                }
+                        slides[currentSlide].style.display = "block";
+                    }
 
-                displaySlide();
-                setInterval(displaySlide, 1500);
-            });
-        }
+                    displaySlide();
+                    setInterval(displaySlide, 1500);
+                });
+            }
 
-        showSlides();
-
+            showSlides();
          
     </script>
 
